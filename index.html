@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>use-rem</title>
+
+    <style>
+      :root {
+        --ratio: calc(100vw / 750);
+      }
+      html {
+        font-size: calc(16 * var(--ratio));
+      }
+
+      .text-box {
+        font-size: 1rem;
+      }
+
+      .h3 {
+        font-size: 1rem;
+      }
+
+      .h2 {
+        font-size: 2rem;
+      }
+
+      .h1 {
+        font-size: 3rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="text-box">我使用了 rem，我会随着根节点变化</div>
+
+    <div class="h1">h1</div>
+    <div class="h2">h2</div>
+    <div class="h3">h3</div>
+
+    <button id="puls">增加</button>
+    <button id="reset">重置</button>
+    <button id="sub">减少</button>
+  </body>
+
+  <script>
+    const puls = document.querySelector("#puls");
+    const reset = document.querySelector("#reset");
+    const sub = document.querySelector("#sub");
+
+    puls.onClick = () => {
+      console.log(111);
+      document.documentElement.style.fontSize++;
+    };
+    reset.onClick = () => {
+      console.log(111);
+      document.documentElement.style.fontSize = "calc(100vw - 750px)";
+    };
+    sub.onClick = () => {
+      console.log(111);
+      document.documentElement.style.fontSize--;
+    };
+  </script>
+</html>
